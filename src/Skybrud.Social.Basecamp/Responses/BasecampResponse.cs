@@ -15,6 +15,9 @@ namespace Skybrud.Social.Basecamp.Responses {
 
         #region Properties
 
+        /// <summary>
+        /// Gets a reference to the rate limiting information of the request.
+        /// </summary>
         public BasecampRateLimit RateLimit { get; }
 
         #endregion

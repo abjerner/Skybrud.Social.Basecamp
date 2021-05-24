@@ -6,6 +6,9 @@ using Skybrud.Essentials.Time;
 
 namespace Skybrud.Social.Basecamp.Models.Headers {
     
+    /// <summary>
+    /// Class representing the rate limiting information specified in a response from the Basecamp API.
+    /// </summary>
     public class BasecampRateLimit : BasecampObject {
 
         #region Properties
@@ -14,10 +17,19 @@ namespace Skybrud.Social.Basecamp.Models.Headers {
 
         public int Period { get; }
 
+        /// <summary>
+        /// Gets the total amount of calls that can be made to the API in the current timeframe.
+        /// </summary>
         public int Limit { get; }
 
+        /// <summary>
+        /// Gets the remaining amount of calls that can be made to the API in the current timeframe.
+        /// </summary>
         public int Remaining { get; }
 
+        /// <summary>
+        /// Gets the timestamp of the next rate limit timeframe.
+        /// </summary>
         public EssentialsTime Until { get; }
 
         #endregion

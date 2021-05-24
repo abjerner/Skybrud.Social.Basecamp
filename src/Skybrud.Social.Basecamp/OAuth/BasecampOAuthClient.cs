@@ -8,7 +8,10 @@ using Skybrud.Social.Basecamp.Endpoints;
 using Skybrud.Social.Basecamp.Responses.Authentication;
 
 namespace Skybrud.Social.Basecamp.OAuth {
-    
+
+    /// <summary>
+    /// Class for handling the raw communication with the Basecamp API as well as any OAuth 2.0 communication/authentication.
+    /// </summary>
     public class BasecampOAuthClient : HttpClient {
 
         #region Properties
@@ -38,8 +41,14 @@ namespace Skybrud.Social.Basecamp.OAuth {
         /// </summary>
         public string UserAgent { get; set; }
 
+        /// <summary>
+        /// Gets a reference to the raw <strong>Authorization</strong> endpoint.
+        /// </summary>
         public BasecampAuthorizationRawEndpoint Authorization { get; }
 
+        /// <summary>
+        /// Gets a reference to the raw <strong>People</strong> endpoint.
+        /// </summary>
         public BasecampPeopleRawEndpoint People { get; }
 
         #endregion
@@ -116,6 +125,10 @@ namespace Skybrud.Social.Basecamp.OAuth {
 
         }
 
+        /// <summary>
+        /// Virtual method that can be used for configuring a request.
+        /// </summary>
+        /// <param name="request">The instance of <see cref="IHttpRequest"/> representing the request.</param>
         protected override void PrepareHttpRequest(IHttpRequest request)  {
             
             // Append scheme and host if not already present

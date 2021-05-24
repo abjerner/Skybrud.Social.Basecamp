@@ -4,14 +4,26 @@ using Skybrud.Essentials.Http;
 
 namespace Skybrud.Social.Basecamp.Models.Headers {
     
+    /// <summary>
+    /// Class representing the <c>Link</c> header of a response received from the Basecamp API.
+    /// </summary>
     public class BasecampLink {
 
         #region Properties
 
+        /// <summary>
+        /// Gets the page number of the next page.
+        /// </summary>
         public int Next { get; }
 
+        /// <summary>
+        /// Gets the URL of the next page.
+        /// </summary>
         public string NextUrl { get; }
 
+        /// <summary>
+        /// Gets whether the list has an additional page.
+        /// </summary>
         public bool HasNext => !string.IsNullOrWhiteSpace(NextUrl);
 
         #endregion

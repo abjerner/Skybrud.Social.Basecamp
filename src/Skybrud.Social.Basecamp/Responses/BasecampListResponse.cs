@@ -11,10 +11,13 @@ namespace Skybrud.Social.Basecamp.Responses {
 
         #region Properties
 
+        /// <inheritdoc/>
         public int TotalCount { get; }
 
+        /// <inheritdoc/>
         public int Count => Body.Length;
 
+        /// <inheritdoc/>
         public BasecampLink Link { get; }
 
         #endregion
