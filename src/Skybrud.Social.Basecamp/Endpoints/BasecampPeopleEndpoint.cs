@@ -31,18 +31,52 @@ namespace Skybrud.Social.Basecamp.Endpoints {
 
         #region Member methods
 
+        /// <summary>
+        /// Returns the profile for the user with the specified <paramref name="personId"/>.
+        /// </summary>
+        /// <param name="accountId">The ID of the Basecamp account.</param>
+        /// <param name="personId">The ID of the person.</param>
+        /// <returns>An instance of <see cref="BasecampPersonResponse"/> representing the response.</returns>
+        /// <see>
+        ///     <cref>https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-person</cref>
+        /// </see>
         public BasecampPersonResponse GetPerson(int accountId, int personId) {
             return new BasecampPersonResponse(Raw.GetPerson(accountId, personId));
         }
 
+        /// <summary>
+        /// Returns the profile of the current user.
+        /// </summary>
+        /// <param name="accountId">The ID of the Basecamp account.</param>
+        /// <returns>An instance of <see cref="BasecampPersonResponse"/> representing the response.</returns>
+        /// <see>
+        ///     <cref>https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-my-personal-info</cref>
+        /// </see>
         public BasecampPersonResponse GetProfile(int accountId) {
             return new BasecampPersonResponse(Raw.GetProfile(accountId));
         }
 
+        /// <summary>
+        /// Returns a paginated list of all people visible to the current user.
+        /// </summary>
+        /// <param name="accountId">The ID of the Basecamp account.</param>
+        /// <returns>An instance of <see cref="BasecampPersonListResponse"/> representing the response.</returns>
+        /// <see>
+        ///     <cref>https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-all-people</cref>
+        /// </see>
         public BasecampPersonListResponse GetAll(int accountId) {
             return new BasecampPersonListResponse(Raw.GetAll(accountId));
         }
 
+        /// <summary>
+        /// Returns a paginated list of all people visible to the current user.
+        /// </summary>
+        /// <param name="accountId">The ID of the Basecamp account.</param>
+        /// <param name="page">The page of the page that should be returned by the API.</param>
+        /// <returns>An instance of <see cref="BasecampPersonListResponse"/> representing the response.</returns>
+        /// <see>
+        ///     <cref>https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-all-people</cref>
+        /// </see>
         public BasecampPersonListResponse GetAll(int accountId, int page) {
             return new BasecampPersonListResponse(Raw.GetAll(accountId, page));
         }
