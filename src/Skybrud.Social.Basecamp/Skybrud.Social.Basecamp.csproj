@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net47<!--,net5.0--></TargetFrameworks>
+  </PropertyGroup>
+ 
+  <PropertyGroup>
+    <Version>1.0.0-beta001</Version>
+    <Authors>Anders Bjerner</Authors>
+    <Company>Skybrud.dk</Company>
+    <Product>Skybrud.Social</Product>
+    <Copyright>Copyright © 2021</Copyright>
+    <Description>Authentication and service implementation for the Basecamp API.</Description>
+    <RepositoryUrl>https://github.com/abjerner/Skybrud.Social.Basecamp</RepositoryUrl>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <PackageTags>Basecamp, API, Skybrud, Social, OAuth, JSON</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://social.skybrud.dk/basecamp/</PackageProjectUrl>
+    <PackageIconUrl>http://www.skybrud.dk/img/5431sk/icon/favicon.ico</PackageIconUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Skybrud.Essentials.Http" Version="1.0.14" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+
+  <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(ConfigurationName)'=='Release' AND '$(BuildTools)'=='1' AND '$(TargetFramework)'=='net47'">
+    <Exec Command="&quot;$(ProjectDir)..\build\Skybrud.BuildTools.Tasks.exe&quot; &quot;postBuild&quot; &quot;$(ConfigurationName)&quot; &quot;$(ProjectPath)&quot; &quot;$(TargetPath)&quot;" />
+  </Target>-->
+
+</Project>
