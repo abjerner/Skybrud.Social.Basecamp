@@ -28,6 +28,11 @@ namespace Skybrud.Social.Basecamp.Models {
         /// <returns><c>true</c> if the parsing succeeds; otherwise <c>false</c>.</returns>
         protected static bool TryParseJson(string json, out JObject result) {
 
+            if (json == null) {
+                result = null;
+                return false;
+            }
+
             json = json.Trim();
 
             if (json[0] == '{' && json[json.Length - 1] == '}') {
