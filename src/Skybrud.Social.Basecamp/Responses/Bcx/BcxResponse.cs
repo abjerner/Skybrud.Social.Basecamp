@@ -8,9 +8,9 @@ using Skybrud.Social.Basecamp.Exceptions;
 namespace Skybrud.Social.Basecamp.Responses.Bcx {
 
     /// <summary>
-    /// Class representing a response from the Basecamp API.
+    /// Class representing a response from the Basecamp 2 API.
     /// </summary>
-    public class BasecampResponse : HttpResponseBase {
+    public class BcxResponse : HttpResponseBase {
 
         #region Constructors
 
@@ -18,7 +18,7 @@ namespace Skybrud.Social.Basecamp.Responses.Bcx {
         /// Initializes a new instance from the specified <paramref name="response"/>.
         /// </summary>
         /// <param name="response">The raw response the instance should be based on.</param>
-        public BasecampResponse(IHttpResponse response) : base(response) {
+        public BcxResponse(IHttpResponse response) : base(response) {
 
             if (response.StatusCode == HttpStatusCode.OK) return;
             if (response.StatusCode == HttpStatusCode.Created) return;
@@ -36,9 +36,9 @@ namespace Skybrud.Social.Basecamp.Responses.Bcx {
     }
 
     /// <summary>
-    /// Class representing a response from the Basecamp API.
+    /// Class representing a response from the Basecamp 2 API.
     /// </summary>
-    public class BasecampResponse<T> : BasecampResponse {
+    public class BcxResponse<T> : BcxResponse {
 
         #region Properties
 
@@ -55,7 +55,7 @@ namespace Skybrud.Social.Basecamp.Responses.Bcx {
         /// Initializes a new instance from the specified <paramref name="response"/>.
         /// </summary>
         /// <param name="response">The raw response the instance should be based on.</param>
-        protected BasecampResponse(IHttpResponse response) : base(response) { }
+        protected BcxResponse(IHttpResponse response) : base(response) { }
 
         #endregion
 

@@ -5,7 +5,7 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bcx {
     /// <summary>
     /// Class representing the <strong>People</strong> endpoint.
     /// </summary>
-    public class BasecampPeopleEndpoint {
+    public class BcxPeopleEndpoint {
 
         #region Properties
 
@@ -17,13 +17,13 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bcx {
         /// <summary>
         /// Gets a reference to the raw <strong>People</strong> endpoint.
         /// </summary>
-        public BasecampPeopleRawEndpoint Raw => Service.Client.Bcx.People;
+        public BcxPeopleRawEndpoint Raw => Service.Client.Bcx.People;
 
         #endregion
 
         #region Constructors
 
-        internal BasecampPeopleEndpoint(BasecampService service) {
+        internal BcxPeopleEndpoint(BasecampService service) {
             Service = service;
         }
 
@@ -35,12 +35,12 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bcx {
         /// Returns information about the authenticated user.
         /// </summary>
         /// <param name="accountId">The ID of the Basecamp 2 account.</param>
-        /// <returns>An instance of <see cref="BasecampPersonResponse"/> representing the response.</returns>
+        /// <returns>An instance of <see cref="BcxPersonResponse"/> representing the response.</returns>
         /// <see>
         ///     <cref>https://github.com/basecamp/bcx-api/blob/master/sections/people.md#get-person</cref>
         /// </see>
-        public BasecampPersonResponse GetProfile(long accountId) {
-            return new BasecampPersonResponse(Raw.GetProfile(accountId));
+        public BcxPersonResponse GetProfile(long accountId) {
+            return new BcxPersonResponse(Raw.GetProfile(accountId));
         }
 
         /// <summary>
@@ -48,24 +48,24 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bcx {
         /// </summary>
         /// <param name="accountId">The ID of the Basecamp 2 account.</param>
         /// <param name="personId">The ID of the person.</param>
-        /// <returns>An instance of <see cref="BasecampPersonResponse"/> representing the response.</returns>
+        /// <returns>An instance of <see cref="BcxPersonResponse"/> representing the response.</returns>
         /// <see>
         ///     <cref>https://github.com/basecamp/bcx-api/blob/master/sections/people.md#get-person</cref>
         /// </see>
-        public BasecampPersonResponse GetPerson(long accountId, long personId) {
-            return new BasecampPersonResponse(Raw.GetPerson(accountId, personId));
+        public BcxPersonResponse GetPerson(long accountId, long personId) {
+            return new BcxPersonResponse(Raw.GetPerson(accountId, personId));
         }
         
         /// <summary>
         /// Returns a list of all people on the account.
         /// </summary>
         /// <param name="accountId">The ID of the Basecamp 2 account.</param>
-        /// <returns>An instance of <see cref="BasecampPersonListResponse"/> representing the response.</returns>
+        /// <returns>An instance of <see cref="BcxPersonListResponse"/> representing the response.</returns>
         /// <see>
         ///     <cref>https://github.com/basecamp/bcx-api/blob/master/sections/people.md#get-people</cref>
         /// </see>
-        public BasecampPersonListResponse GetAll(int accountId) {
-            return new BasecampPersonListResponse(Raw.GetAll(accountId));
+        public BcxPersonListResponse GetAll(int accountId) {
+            return new BcxPersonListResponse(Raw.GetAll(accountId));
         }
 
         #endregion

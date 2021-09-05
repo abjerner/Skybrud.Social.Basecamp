@@ -8,7 +8,7 @@ namespace Skybrud.Social.Basecamp.Models.Bcx.People {
     /// <summary>
     /// Class representing a Basecamp 2 person.
     /// </summary>
-    public class BasecampPerson : JsonObjectBase {
+    public class BcxPerson : JsonObjectBase {
 
         #region Properties
 
@@ -81,7 +81,7 @@ namespace Skybrud.Social.Basecamp.Models.Bcx.People {
 
         #region Constructors
 
-        private BasecampPerson(JObject json) : base(json)  {
+        private BcxPerson(JObject json) : base(json)  {
             Id = json.GetInt64("id");
             Name = json.GetString("name");
             EmailAddress = json.GetString("email_address");
@@ -102,12 +102,12 @@ namespace Skybrud.Social.Basecamp.Models.Bcx.People {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <paramref name="json"/> object into an instance of <see cref="BasecampPerson"/>.
+        /// Parses the specified <paramref name="json"/> object into an instance of <see cref="BcxPerson"/>.
         /// </summary>
         /// <param name="json">The instance of <see cref="JObject"/> to be parsed.</param>
-        /// <returns>An instance of <see cref="BasecampPerson"/>.</returns>
-        public static BasecampPerson Parse(JObject json) {
-            return json == null ? null : new BasecampPerson(json);
+        /// <returns>An instance of <see cref="BcxPerson"/>.</returns>
+        public static BcxPerson Parse(JObject json) {
+            return json == null ? null : new BcxPerson(json);
         }
 
         #endregion

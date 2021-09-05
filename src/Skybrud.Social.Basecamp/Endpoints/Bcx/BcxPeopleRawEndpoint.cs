@@ -7,7 +7,7 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bcx {
     /// <summary>
     /// Class representing the raw <strong>People</strong> endpoint.
     /// </summary>
-    public class BasecampPeopleRawEndpoint {
+    public class BcxPeopleRawEndpoint {
 
         #region Properties
 
@@ -20,7 +20,7 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bcx {
 
         #region Constructors
 
-        internal BasecampPeopleRawEndpoint(BasecampOAuthClient client) {
+        internal BcxPeopleRawEndpoint(BasecampOAuthClient client) {
             Client = client;
         }
 

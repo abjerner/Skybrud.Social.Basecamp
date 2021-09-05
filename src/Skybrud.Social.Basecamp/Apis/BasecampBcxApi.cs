@@ -7,10 +7,10 @@ namespace Skybrud.Social.Basecamp.Apis {
         /// <summary>
         /// Gets a reference to the <strong>People</strong> endpoint.
         /// </summary>
-        public BasecampPeopleEndpoint People { get; }
+        public BcxPeopleEndpoint People { get; }
 
         internal BasecampBcxApi(BasecampService service) {
-            People = new BasecampPeopleEndpoint(service);
+            People = new BcxPeopleEndpoint(service);
         }
 
     }
