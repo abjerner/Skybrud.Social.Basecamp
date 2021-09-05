@@ -1,6 +1,6 @@
 ﻿using Skybrud.Essentials.Http;
-using Skybrud.Essentials.Http.Collections;
 using Skybrud.Social.Basecamp.OAuth;
+using Skybrud.Social.Basecamp.Options.Bc3.People;
 
 namespace Skybrud.Social.Basecamp.Endpoints.Bc3 {
 
@@ -37,8 +37,8 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bc3 {
         /// <see>
         ///     <cref>https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-person</cref>
         /// </see>
-        public IHttpResponse GetPerson(int accountId, int personId) {
-            return Client.Get($"/{accountId}/people/{personId}.json");
+        public IHttpResponse GetPerson(long accountId, long personId) {
+            return Client.GetResponse(new BasecampGetPersonOptions(accountId, personId));
         }
 
         /// <summary>
@@ -49,8 +49,8 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bc3 {
         /// <see>
         ///     <cref>https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-my-personal-info</cref>
         /// </see>
-        public IHttpResponse GetProfile(int accountId) {
-            return Client.Get($"/{accountId}/my/profile.json");
+        public IHttpResponse GetProfile(long accountId) {
+            return Client.GetResponse(new BasecampGetProfileOptions(accountId));
         }
 
         /// <summary>
@@ -61,8 +61,8 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bc3 {
         /// <see>
         ///     <cref>https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-all-people</cref>
         /// </see>
-        public IHttpResponse GetAll(int accountId) {
-            return Client.Get($"/{accountId}/people.json");
+        public IHttpResponse GetAll(long accountId) {
+            return Client.GetResponse(new BasecampGetPeopleOptions(accountId));
         }
 
         /// <summary>
@@ -74,8 +74,8 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bc3 {
         /// <see>
         ///     <cref>https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-all-people</cref>
         /// </see>
-        public IHttpResponse GetAll(int accountId, int page) {
-            return Client.Get($"/{accountId}/people.json", new HttpQueryString {{"page", page}});
+        public IHttpResponse GetAll(long accountId, int page) {
+            return Client.GetResponse(new BasecampGetPeopleOptions(accountId, page));
         }
 
         #endregion
