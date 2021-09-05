@@ -1,6 +1,4 @@
-﻿using Skybrud.Essentials.Http;
-using Skybrud.Social.Basecamp.Options.Bcx.People;
-using Skybrud.Social.Basecamp.Responses.Bcx.People;
+﻿using Skybrud.Social.Basecamp.Responses.Bcx.People;
 
 namespace Skybrud.Social.Basecamp.Endpoints.Bcx {
 
@@ -32,6 +30,31 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bcx {
         #endregion
 
         #region Member methods
+        
+        /// <summary>
+        /// Returns information about the authenticated user.
+        /// </summary>
+        /// <param name="accountId">The ID of the Basecamp 2 account.</param>
+        /// <returns>An instance of <see cref="BasecampPersonResponse"/> representing the response.</returns>
+        /// <see>
+        ///     <cref>https://github.com/basecamp/bcx-api/blob/master/sections/people.md#get-person</cref>
+        /// </see>
+        public BasecampPersonResponse GetProfile(long accountId) {
+            return new BasecampPersonResponse(Raw.GetProfile(accountId));
+        }
+
+        /// <summary>
+        /// Returns information about the person with the specified <paramref name="personId"/>.
+        /// </summary>
+        /// <param name="accountId">The ID of the Basecamp 2 account.</param>
+        /// <param name="personId">The ID of the person.</param>
+        /// <returns>An instance of <see cref="BasecampPersonResponse"/> representing the response.</returns>
+        /// <see>
+        ///     <cref>https://github.com/basecamp/bcx-api/blob/master/sections/people.md#get-person</cref>
+        /// </see>
+        public BasecampPersonResponse GetPerson(long accountId, long personId) {
+            return new BasecampPersonResponse(Raw.GetPerson(accountId, personId));
+        }
         
         /// <summary>
         /// Returns a list of all people on the account.
