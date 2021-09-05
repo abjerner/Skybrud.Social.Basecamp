@@ -3,8 +3,12 @@ using Skybrud.Essentials.Common;
 using Skybrud.Essentials.Http;
 using Skybrud.Essentials.Http.Client;
 using Skybrud.Essentials.Http.Collections;
+using Skybrud.Essentials.Http.Options;
 using Skybrud.Essentials.Strings.Extensions;
+using Skybrud.Social.Basecamp.Apis;
 using Skybrud.Social.Basecamp.Endpoints;
+using Skybrud.Social.Basecamp.Options.Bc3;
+using Skybrud.Social.Basecamp.Options.Bcx;
 using Skybrud.Social.Basecamp.Responses.Authentication;
 
 namespace Skybrud.Social.Basecamp.OAuth {
@@ -47,9 +51,14 @@ namespace Skybrud.Social.Basecamp.OAuth {
         public BasecampAuthorizationRawEndpoint Authorization { get; }
 
         /// <summary>
-        /// Gets a reference to the raw <strong>People</strong> endpoint.
+        /// Gets a reference to the raw Basecamp 2 API implementation.
         /// </summary>
-        public BasecampPeopleRawEndpoint People { get; }
+        public BasecampBcxRawApi Bcx { get; }
+        
+        /// <summary>
+        /// Gets a reference to the raw Basecamp 3 API implementation.
+        /// </summary>
+        public BasecampBc3RawApi Bc3 { get; }
 
         #endregion
 
@@ -60,7 +69,8 @@ namespace Skybrud.Social.Basecamp.OAuth {
         /// </summary>
         public BasecampOAuthClient() {
             Authorization = new BasecampAuthorizationRawEndpoint(this);
-            People = new BasecampPeopleRawEndpoint(this);
+            Bcx = new BasecampBcxRawApi(this);
+            Bc3 = new BasecampBc3RawApi(this);
         }
 
         #endregion
@@ -124,15 +134,24 @@ namespace Skybrud.Social.Basecamp.OAuth {
             return BasecampTokenResponse.ParseResponse(response);
 
         }
-
+        
+        /// <summary>
+        /// Returns the response of the request identified by the specified <paramref name="options"/>.
+        /// </summary>
+        /// <param name="options">The options for the request to the API.</param>
+        /// <returns>An instanceo of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public override IHttpResponse GetResponse(IHttpRequestOptions options) {
+            if (options == null) throw new ArgumentNullException(nameof(options));
+            IHttpRequest request = options.GetRequest();
+            PrepareHttpRequest(request, options);
+            return request.GetResponse();
+        }
+        
         /// <summary>
         /// Virtual method that can be used for configuring a request.
         /// </summary>
-        /// <param name="request">The instance of <see cref="IHttpRequest"/> representing the request.</param>
-        protected override void PrepareHttpRequest(IHttpRequest request)  {
-            
-            // Append scheme and host if not already present
-            if (request.Url.StartsWith("/")) request.Url = "https://3.basecampapi.com" + request.Url;
+        /// <param name="request">The request.</param>
+        protected override void PrepareHttpRequest(IHttpRequest request) {
 
             // Set the user agent (required by Basecamp)
             request.UserAgent = UserAgent.HasValue() ? UserAgent : "Skybrud.Social (https://github.com/abjerner/Skybrud.Social.Basecamp)";
@@ -141,6 +160,33 @@ namespace Skybrud.Social.Basecamp.OAuth {
             if (!string.IsNullOrWhiteSpace(AccessToken)) {
                 request.Headers.Authorization = "Bearer " + AccessToken;
             }
+
+        }
+        
+        /// <summary>
+        /// Virtual method that can be used for configuring a request.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <param name="options">The options describing a HTTP request.</param>
+        protected void PrepareHttpRequest(IHttpRequest request, IHttpRequestOptions options) {
+            
+            // Append scheme and host if not already present
+            switch (options) {
+
+                case BasecampBcxRequestOptions _:
+                    if (request.Url.StartsWith("/")) request.Url = "https://basecamp.com" + request.Url;
+                    break;
+
+                case BasecampBc3RequestOptions _:
+                    if (request.Url.StartsWith("/")) request.Url = "https://3.basecampapi.com" + request.Url;
+                    break;
+
+                
+            }
+
+            // Call the inherited method
+            PrepareHttpRequest(request);
+
         }
 
         #endregion

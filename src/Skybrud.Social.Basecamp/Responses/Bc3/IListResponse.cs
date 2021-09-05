@@ -1,6 +1,6 @@
-﻿using Skybrud.Social.Basecamp.Models.Headers;
+﻿using Skybrud.Social.Basecamp.Models.Bc3.Headers;
 
-namespace Skybrud.Social.Basecamp.Responses {
+namespace Skybrud.Social.Basecamp.Responses.Bc3 {
     
     /// <summary>
     /// Interface describing a list response.

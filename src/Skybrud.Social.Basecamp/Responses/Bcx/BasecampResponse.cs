@@ -4,23 +4,13 @@ using Skybrud.Essentials.Http;
 using Skybrud.Essentials.Json;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Basecamp.Exceptions;
-using Skybrud.Social.Basecamp.Models.Headers;
 
-namespace Skybrud.Social.Basecamp.Responses {
+namespace Skybrud.Social.Basecamp.Responses.Bcx {
 
     /// <summary>
     /// Class representing a response from the Basecamp API.
     /// </summary>
     public class BasecampResponse : HttpResponseBase {
-
-        #region Properties
-
-        /// <summary>
-        /// Gets a reference to the rate limiting information of the request.
-        /// </summary>
-        public BasecampRateLimit RateLimit { get; }
-
-        #endregion
 
         #region Constructors
 
@@ -29,8 +19,6 @@ namespace Skybrud.Social.Basecamp.Responses {
         /// </summary>
         /// <param name="response">The raw response the instance should be based on.</param>
         public BasecampResponse(IHttpResponse response) : base(response) {
-
-            RateLimit = BasecampRateLimit.Parse(response);
 
             if (response.StatusCode == HttpStatusCode.OK) return;
             if (response.StatusCode == HttpStatusCode.Created) return;

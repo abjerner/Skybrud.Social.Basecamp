@@ -1,6 +1,6 @@
-﻿using Skybrud.Social.Basecamp.Responses.People;
+﻿using Skybrud.Social.Basecamp.Responses.Bc3.People;
 
-namespace Skybrud.Social.Basecamp.Endpoints {
+namespace Skybrud.Social.Basecamp.Endpoints.Bc3 {
 
     /// <summary>
     /// Class representing the <strong>People</strong> endpoint.
@@ -17,7 +17,7 @@ namespace Skybrud.Social.Basecamp.Endpoints {
         /// <summary>
         /// Gets a reference to the raw <strong>People</strong> endpoint.
         /// </summary>
-        public BasecampPeopleRawEndpoint Raw => Service.Client.People;
+        public BasecampPeopleRawEndpoint Raw => Service.Client.Bc3.People;
 
         #endregion
 

@@ -4,7 +4,7 @@ using Skybrud.Essentials.Http;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Essentials.Time;
 
-namespace Skybrud.Social.Basecamp.Models.Headers {
+namespace Skybrud.Social.Basecamp.Models.Bc3.Headers {
     
     /// <summary>
     /// Class representing the rate limiting information specified in a response from the Basecamp API.

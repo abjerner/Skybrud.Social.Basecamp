@@ -2,6 +2,7 @@
 using Skybrud.Essentials.Http;
 using Skybrud.Essentials.Json;
 using Skybrud.Social.Basecamp.Models.Authentication;
+using Skybrud.Social.Basecamp.Responses.Bc3;
 
 namespace Skybrud.Social.Basecamp.Responses.Authentication {
 

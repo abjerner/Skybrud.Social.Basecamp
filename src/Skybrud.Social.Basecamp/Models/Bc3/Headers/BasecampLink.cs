@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using Skybrud.Essentials.Http;
 
-namespace Skybrud.Social.Basecamp.Models.Headers {
+namespace Skybrud.Social.Basecamp.Models.Bc3.Headers {
     
     /// <summary>
     /// Class representing the <c>Link</c> header of a response received from the Basecamp API.

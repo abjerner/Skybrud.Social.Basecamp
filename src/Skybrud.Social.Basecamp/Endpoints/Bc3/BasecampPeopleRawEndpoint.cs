@@ -2,7 +2,7 @@
 using Skybrud.Essentials.Http.Collections;
 using Skybrud.Social.Basecamp.OAuth;
 
-namespace Skybrud.Social.Basecamp.Endpoints {
+namespace Skybrud.Social.Basecamp.Endpoints.Bc3 {
 
     /// <summary>
     /// Class representing the raw <strong>People</strong> endpoint.

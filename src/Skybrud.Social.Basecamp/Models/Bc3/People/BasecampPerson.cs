@@ -3,7 +3,7 @@ using Skybrud.Essentials.Json;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Essentials.Time;
 
-namespace Skybrud.Social.Basecamp.Models.People {
+namespace Skybrud.Social.Basecamp.Models.Bc3.People {
     
     /// <summary>
     /// Class representing a Basecamp person.
