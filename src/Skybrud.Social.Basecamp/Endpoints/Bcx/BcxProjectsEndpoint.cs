@@ -1,5 +1,7 @@
 ﻿using Skybrud.Social.Basecamp.Options.Bcx.Projects;
+using Skybrud.Social.Basecamp.Options.Bcx.Projects.Todolists;
 using Skybrud.Social.Basecamp.Responses.Bcx.Projects;
+using Skybrud.Social.Basecamp.Responses.Bcx.Todolists;
 
 namespace Skybrud.Social.Basecamp.Endpoints.Bcx {
 
@@ -67,6 +69,57 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bcx {
         /// </see>
         public BcxProjectListResponse GetProjects(BcxGetProjectsOptions options) {
             return new BcxProjectListResponse(Raw.GetProjects(options));
+        }
+
+        /// <summary>
+        /// Returns a list of active todolists matching the specified <paramref name="accountId"/> and <paramref name="projectId"/>.
+        /// </summary>
+        /// <param name="accountId">The ID of the Basecamp 2 account.</param>
+        /// <param name="projectId">The ID of the project.</param>
+        /// <returns>An instance of <see cref="BcxTodolistListResponse"/> representing the response.</returns>
+        /// <see>
+        ///     <cref>https://github.com/basecamp/bcx-api/blob/master/sections/todolists.md#get-to-do-lists</cref>
+        /// </see>
+        public BcxTodolistListResponse GetTodolists(long accountId, long projectId) {
+            return new BcxTodolistListResponse(Raw.GetTodolists(accountId, projectId));
+        }
+
+        /// <summary>
+        /// Returns a list of complete todolists matching the specified <paramref name="accountId"/> and <paramref name="projectId"/>.
+        /// </summary>
+        /// <param name="accountId">The ID of the Basecamp 2 account.</param>
+        /// <param name="projectId">The ID of the project.</param>
+        /// <returns>An instance of <see cref="BcxTodolistListResponse"/> representing the response.</returns>
+        /// <see>
+        ///     <cref>https://github.com/basecamp/bcx-api/blob/master/sections/todolists.md#get-to-do-lists</cref>
+        /// </see>
+        public BcxTodolistListResponse GetCompletedTodolists(long accountId, long projectId) {
+            return new BcxTodolistListResponse(Raw.GetCompletedTodolists(accountId, projectId));
+        }
+
+        /// <summary>
+        /// Returns a list of active todolists matching the specified <paramref name="accountId"/> and <paramref name="projectId"/>.
+        /// </summary>
+        /// <param name="accountId">The ID of the Basecamp 2 account.</param>
+        /// <param name="projectId">The ID of the project.</param>
+        /// <returns>An instance of <see cref="BcxTodolistListResponse"/> representing the response.</returns>
+        /// <see>
+        ///     <cref>https://github.com/basecamp/bcx-api/blob/master/sections/todolists.md#get-to-do-lists</cref>
+        /// </see>
+        public BcxTodolistListResponse GetTrashedTodolists(long accountId, long projectId) {
+            return new BcxTodolistListResponse(Raw.GetTrashedTodolists(accountId, projectId));
+        }
+
+        /// <summary>
+        /// Returns a list of todolists matching the specified <paramref name="options"/>.
+        /// </summary>
+        /// <param name="options">The options for the request to the API.</param>
+        /// <returns>An instance of <see cref="BcxTodolistListResponse"/> representing the response.</returns>
+        /// <see>
+        ///     <cref>https://github.com/basecamp/bcx-api/blob/master/sections/todolists.md#get-to-do-lists</cref>
+        /// </see>
+        public BcxTodolistListResponse GetTodolists(BcxGetTodolistsOptions options) {
+            return new BcxTodolistListResponse(Raw.GetTodolists(options));
         }
 
         #endregion
