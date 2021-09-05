@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Basecamp.Models.Bcx.People {
 
@@ -9,6 +10,15 @@ namespace Skybrud.Social.Basecamp.Models.Bcx.People {
     ///     <cref>https://github.com/basecamp/bcx-api/blob/master/sections/people.md</cref>
     /// </see>
     public class BcxPerson : BcxPersonItem {
+
+        #region Properties
+
+        /// <summary>
+        /// Gets whether the person is the owner of the account.
+        /// </summary>
+        public bool IsAccountOwner { get; }
+
+        #endregion
         
         #region Constructors
 
@@ -16,7 +26,9 @@ namespace Skybrud.Social.Basecamp.Models.Bcx.People {
         /// Initializes a new instance based on the specified <paramref name="json"/> object.
         /// </summary>
         /// <param name="json">The JSON object representing the person.</param>
-        public BcxPerson(JObject json) : base(json) { }
+        public BcxPerson(JObject json) : base(json) {
+            IsAccountOwner = json.GetBoolean("account_owner");
+        }
 
         #endregion
 

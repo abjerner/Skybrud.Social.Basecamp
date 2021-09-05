@@ -10,8 +10,14 @@ namespace Skybrud.Social.Basecamp.Apis {
         /// </summary>
         public BcxPeopleRawEndpoint People { get; }
 
+        /// <summary>
+        /// Gets a reference to the raw <strong>Projects</strong> endpoint.
+        /// </summary>
+        public BcxProjectsRawEndpoint Projects { get; }
+
         internal BasecampBcxRawApi(BasecampOAuthClient client) {
             People = new BcxPeopleRawEndpoint(client);
+            Projects = new BcxProjectsRawEndpoint(client);
         }
 
     }
