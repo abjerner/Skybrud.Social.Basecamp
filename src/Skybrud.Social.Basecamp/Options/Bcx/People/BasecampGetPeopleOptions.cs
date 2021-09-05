@@ -6,6 +6,9 @@ namespace Skybrud.Social.Basecamp.Options.Bcx.People {
     /// <summary>
     /// Options for getting a list of people in a Basecamp 2 account.
     /// </summary>
+    /// <see>
+    ///     <cref>https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-all-people</cref>
+    /// </see>
     public class BasecampGetPeopleOptions : BasecampBcxRequestOptions {
         
         /// <summary>

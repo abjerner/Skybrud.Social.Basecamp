@@ -1,13 +1,13 @@
 ﻿using Newtonsoft.Json.Linq;
-using Skybrud.Essentials.Json;
-using Skybrud.Essentials.Json.Extensions;
-using Skybrud.Essentials.Time;
 
 namespace Skybrud.Social.Basecamp.Models.Bcx.People {
 
     /// <summary>
     /// Class representing a Basecamp 2 person.
     /// </summary>
+    /// <see>
+    ///     <cref>https://github.com/basecamp/bcx-api/blob/master/sections/people.md</cref>
+    /// </see>
     public class BcxPerson : BcxPersonItem {
         
         #region Constructors
