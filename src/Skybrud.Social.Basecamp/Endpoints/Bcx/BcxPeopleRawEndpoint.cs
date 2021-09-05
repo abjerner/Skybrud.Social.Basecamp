@@ -37,7 +37,7 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bcx {
         ///     <cref>https://github.com/basecamp/bcx-api/blob/master/sections/people.md#get-person</cref>
         /// </see>
         public IHttpResponse GetProfile(long accountId) {
-            return Client.GetResponse(new BasecampGetProfileOptions(accountId));
+            return Client.GetResponse(new BcxGetProfileOptions(accountId));
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bcx {
         ///     <cref>https://github.com/basecamp/bcx-api/blob/master/sections/people.md#get-person</cref>
         /// </see>
         public IHttpResponse GetPerson(long accountId, long personId) {
-            return Client.GetResponse(new BasecampGetPersonOptions(accountId, personId));
+            return Client.GetResponse(new BcxGetPersonOptions(accountId, personId));
         }
         
         /// <summary>
@@ -62,7 +62,7 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bcx {
         ///     <cref>https://github.com/basecamp/bcx-api/blob/master/sections/people.md#get-people</cref>
         /// </see>
         public IHttpResponse GetAll(long accountId) {
-            return Client.GetResponse(new BasecampGetPeopleOptions(accountId));
+            return Client.GetResponse(new BcxGetPeopleOptions(accountId));
         }
 
         #endregion

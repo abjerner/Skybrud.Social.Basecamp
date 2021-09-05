@@ -9,7 +9,7 @@ namespace Skybrud.Social.Basecamp.Options.Bcx.People {
     /// <see>
     ///     <cref>https://github.com/basecamp/bcx-api/blob/master/sections/people.md#get-person</cref>
     /// </see>
-    public class BasecampGetPersonOptions : BasecampBcxRequestOptions {
+    public class BcxGetPersonOptions : BcxRequestOptions {
         
         /// <summary>
         /// Gets or sets the ID of the Basecamp 2 account.
@@ -24,14 +24,14 @@ namespace Skybrud.Social.Basecamp.Options.Bcx.People {
         /// <summary>
         /// Initializes a new instance with default options.
         /// </summary>
-        public BasecampGetPersonOptions() { }
+        public BcxGetPersonOptions() { }
 
         /// <summary>
         /// Initializes a new instance based on the specified <paramref name="accountId"/> and <paramref name="personId"/>.
         /// </summary>
         /// <param name="accountId">The ID of the account.</param>
         /// <param name="personId">The ID of the person.</param>
-        public BasecampGetPersonOptions(long accountId, long personId) {
+        public BcxGetPersonOptions(long accountId, long personId) {
             AccountId = accountId;
             PersonId = personId;
         }

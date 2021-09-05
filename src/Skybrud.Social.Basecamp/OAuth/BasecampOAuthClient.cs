@@ -173,7 +173,7 @@ namespace Skybrud.Social.Basecamp.OAuth {
             // Append scheme and host if not already present
             switch (options) {
 
-                case BasecampBcxRequestOptions _:
+                case BcxRequestOptions _:
                     if (request.Url.StartsWith("/")) request.Url = "https://basecamp.com" + request.Url;
                     break;
 
