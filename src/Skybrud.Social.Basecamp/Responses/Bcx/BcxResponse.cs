@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Http;
 using Skybrud.Essentials.Json;
@@ -22,9 +23,10 @@ namespace Skybrud.Social.Basecamp.Responses.Bcx {
 
             if (response.StatusCode == HttpStatusCode.OK) return;
             if (response.StatusCode == HttpStatusCode.Created) return;
+            
+            if (response.Body.Length == 0) throw new BasecampHttpException(response);
 
             JObject obj = JsonUtils.ParseJsonObject(response.Body);
-
             string error = obj.GetString("error");
 
             throw new BasecampHttpException(response, error);

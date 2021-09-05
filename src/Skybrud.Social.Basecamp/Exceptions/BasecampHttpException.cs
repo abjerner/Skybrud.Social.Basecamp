@@ -22,13 +22,27 @@ namespace Skybrud.Social.Basecamp.Exceptions {
         public HttpStatusCode StatusCode => Response.StatusCode;
 
         /// <summary>
-        /// Gets the error information from the response.
+        /// Gets the error message from the response.
         /// </summary>
         public string Error { get; }
+
+        /// <summary>
+        /// Gets whether the response included an error message.
+        /// </summary>
+        public bool HasError => !string.IsNullOrWhiteSpace(Error);
 
         #endregion
 
         #region Constructors
+
+        /// <summary>
+        /// Initializes a new exception based on the specified <paramref name="response"/>.
+        /// </summary>
+        /// <param name="response">The raw response of the exception.</param>
+
+        public BasecampHttpException(IHttpResponse response) : base("Invalid response received from the Basecamp API.") {
+            Response = response;
+        }
 
         /// <summary>
         /// Initializes a new exception based on the specified <paramref name="response"/> and <paramref name="error"/>.
