@@ -7,7 +7,7 @@ namespace Skybrud.Social.Basecamp {
     /// <summary>
     /// Class representing the object oriented implementation of the Basecamp API.
     /// </summary>
-    public class BasecampService {
+    public class BasecampHttpService {
 
         #region Properties
 
@@ -33,13 +33,13 @@ namespace Skybrud.Social.Basecamp {
         /// <summary>
         /// Initializes a new service instance with default settings.
         /// </summary>
-        public BasecampService() : this(new BasecampOAuthClient()) { }
+        public BasecampHttpService() : this(new BasecampOAuthClient()) { }
 
         /// <summary>
         /// Initializes a new service based on the specified <paramref name="client"/>.
         /// </summary>
         /// <param name="client">The OAuth client that this service instance should wrap.</param>
-        public BasecampService(BasecampOAuthClient client) {
+        public BasecampHttpService(BasecampOAuthClient client) {
             Client = client ?? throw new ArgumentNullException(nameof(client));
             Bcx = new BasecampBcxApi(this);
             Bc3 = new BasecampBc3Api(this);
@@ -53,18 +53,18 @@ namespace Skybrud.Social.Basecamp {
         /// Initialize a new service instance from the specified OAuth <paramref name="client"/>.
         /// </summary>
         /// <param name="client">The OAuth client.</param>
-        public static BasecampService CreateFromOAuthClient(BasecampOAuthClient client) {
+        public static BasecampHttpService CreateFromOAuthClient(BasecampOAuthClient client) {
             if (client == null) throw new ArgumentNullException(nameof(client));
-            return new BasecampService(client);
+            return new BasecampHttpService(client);
         }
 
         /// <summary>
         /// Initializes a new service instance from the specified OAuth 2 <paramref name="accessToken"/>.
         /// </summary>
         /// <param name="accessToken">The access token.</param>
-        public static BasecampService CreateFromAccessToken(string accessToken) {
+        public static BasecampHttpService CreateFromAccessToken(string accessToken) {
             if (string.IsNullOrWhiteSpace(accessToken)) throw new ArgumentNullException(nameof(accessToken));
-            return new BasecampService(new BasecampOAuthClient {AccessToken = accessToken});
+            return new BasecampHttpService(new BasecampOAuthClient {AccessToken = accessToken});
         }
 
         #endregion

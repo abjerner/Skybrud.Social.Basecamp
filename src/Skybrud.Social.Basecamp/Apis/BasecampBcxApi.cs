@@ -19,7 +19,7 @@ namespace Skybrud.Social.Basecamp.Apis {
         /// </summary>
         public BcxTodolistsEndpoint Todolists { get; }
 
-        internal BasecampBcxApi(BasecampService service) {
+        internal BasecampBcxApi(BasecampHttpService service) {
             People = new BcxPeopleEndpoint(service);
             Projects = new BcxProjectsEndpoint(service);
             Todolists = new BcxTodolistsEndpoint(service);

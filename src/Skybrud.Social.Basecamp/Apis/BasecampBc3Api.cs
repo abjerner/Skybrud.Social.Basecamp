@@ -9,7 +9,7 @@ namespace Skybrud.Social.Basecamp.Apis {
         /// </summary>
         public BasecampPeopleEndpoint People { get; }
         
-        internal BasecampBc3Api(BasecampService service) {
+        internal BasecampBc3Api(BasecampHttpService service) {
             People = new BasecampPeopleEndpoint(service);
         }
 

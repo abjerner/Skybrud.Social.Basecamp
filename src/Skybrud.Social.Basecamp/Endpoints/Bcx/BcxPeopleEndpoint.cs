@@ -12,7 +12,7 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bcx {
         /// <summary>
         /// Gets a reference to the parent service.
         /// </summary>
-        public BasecampService Service { get; }
+        public BasecampHttpService Service { get; }
 
         /// <summary>
         /// Gets a reference to the raw <strong>People</strong> endpoint.
@@ -23,7 +23,7 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bcx {
 
         #region Constructors
 
-        internal BcxPeopleEndpoint(BasecampService service) {
+        internal BcxPeopleEndpoint(BasecampHttpService service) {
             Service = service;
         }
 
