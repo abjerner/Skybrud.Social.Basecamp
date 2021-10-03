@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json.Linq;
-using Skybrud.Essentials.Json;
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Basecamp.Models.Bc3.People {
@@ -7,14 +6,14 @@ namespace Skybrud.Social.Basecamp.Models.Bc3.People {
     /// <summary>
     /// Class representing a reference to another Basecamp resource.
     /// </summary>
-    public class BasecampReference : JsonObjectBase {
+    public class BasecampReference : BasecampObject {
 
         #region Properties
 
         /// <summary>
         /// Gets the ID of the referenced resource.
         /// </summary>
-        public int Id { get; }
+        public long Id { get; }
 
         /// <summary>
         /// Gets the name of the referenced resource.
@@ -26,7 +25,7 @@ namespace Skybrud.Social.Basecamp.Models.Bc3.People {
         #region Constructors
 
         private BasecampReference(JObject json) : base(json)  {
-            Id = json.GetInt32("id");
+            Id = json.GetInt64("id");
             Name = json.GetString("name");
         }
 

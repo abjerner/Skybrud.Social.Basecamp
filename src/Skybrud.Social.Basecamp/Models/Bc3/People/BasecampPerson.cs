@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json.Linq;
-using Skybrud.Essentials.Json;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Essentials.Time;
 
@@ -8,14 +7,14 @@ namespace Skybrud.Social.Basecamp.Models.Bc3.People {
     /// <summary>
     /// Class representing a Basecamp person.
     /// </summary>
-    public class BasecampPerson : JsonObjectBase {
+    public class BasecampPerson : BasecampObject {
 
         #region Properties
 
         /// <summary>
         /// Gets the ID of the person.
         /// </summary>
-        public int Id { get; }
+        public long Id { get; }
 
         public string AttachableSgid { get; }
 
@@ -94,7 +93,7 @@ namespace Skybrud.Social.Basecamp.Models.Bc3.People {
         #region Constructors
 
         private BasecampPerson(JObject json) : base(json)  {
-            Id = json.GetInt32("id");
+            Id = json.GetInt64("id");
             AttachableSgid = json.GetString("attachable_sgid");
             Name = json.GetString("name");
             EmailAddress = json.GetString("email_address");
