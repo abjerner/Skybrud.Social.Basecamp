@@ -31,10 +31,19 @@ namespace Skybrud.Social.Basecamp.Models.Bc3.Todos {
         /// </summary>
         public string Title { get; }
 
+        /// <summary>
+        /// Gets the API URL of the to-do.
+        /// </summary>
         public string Url { get; }
-
+        
+        /// <summary>
+        /// Gets the app URL of the to-do.
+        /// </summary>
         public string AppUrl { get; }
-
+        
+        /// <summary>
+        /// Gets information about the parent object.
+        /// </summary>
         public BasecampParent Parent { get; }
 
         #endregion

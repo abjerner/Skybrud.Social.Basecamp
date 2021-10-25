@@ -1,15 +1,19 @@
 ﻿using Newtonsoft.Json.Linq;
-using Skybrud.Essentials.Json;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Essentials.Time;
-using Skybrud.Social.Basecamp.Models.Bc3.People;
 
 namespace Skybrud.Social.Basecamp.Models.Bc3.Comments {
 
+    /// <summary>
+    /// Class representing a Basecamp comment.
+    /// </summary>
     public class BasecampComment : BasecampObject {
 
         #region Properties
         
+        /// <summary>
+        /// Gets the ID of the comment.
+        /// </summary>
         public long Id { get; }
 
         /// <summary>
@@ -27,12 +31,24 @@ namespace Skybrud.Social.Basecamp.Models.Bc3.Comments {
         /// </summary>
         public string Title { get; }
 
+        /// <summary>
+        /// Gets the API URL of the comment.
+        /// </summary>
         public string Url { get; }
-
+        
+        /// <summary>
+        /// Gets the app URL of the comment.
+        /// </summary>
         public string AppUrl { get; }
-
+        
+        /// <summary>
+        /// Gets information about the parent object.
+        /// </summary>
         public BasecampParent Parent { get; }
 
+        /// <summary>
+        /// Gets the content of the comment.
+        /// </summary>
         public string Content { get; }
 
         #endregion

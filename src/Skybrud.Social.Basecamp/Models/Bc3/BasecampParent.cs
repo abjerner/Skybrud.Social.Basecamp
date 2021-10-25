@@ -3,18 +3,36 @@ using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Basecamp.Models.Bc3 {
     
+    /// <summary>
+    /// Class with information about a parent object.
+    /// </summary>
     public class BasecampParent : BasecampObject {
 
         #region Properties
 
+        /// <summary>
+        /// Gets the ID of the parent.
+        /// </summary>
         public long Id { get; }
 
+        /// <summary>
+        /// Gets the title of the parent.
+        /// </summary>
         public string Title { get; }
-
+        
+        /// <summary>
+        /// Gets the type of the parent.
+        /// </summary>
         public string Type { get; }
-
+        
+        /// <summary>
+        /// Gets the URL of the parent.
+        /// </summary>
         public string Url { get; }
-
+        
+        /// <summary>
+        /// Gets the app URL of the parent.
+        /// </summary>
         public string AppUrl { get; }
 
         #endregion

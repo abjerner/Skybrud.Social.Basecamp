@@ -3,6 +3,9 @@ using Skybrud.Social.Basecamp.OAuth;
 
 namespace Skybrud.Social.Basecamp.Apis {
    
+    /// <summary>
+    /// Class representing the raw implementation of the Basecamp 2 API.
+    /// </summary>
     public class BasecampBcxRawApi {
 
         /// <summary>

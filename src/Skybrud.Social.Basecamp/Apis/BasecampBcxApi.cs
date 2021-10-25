@@ -1,7 +1,10 @@
 ﻿using Skybrud.Social.Basecamp.Endpoints.Bcx;
 
 namespace Skybrud.Social.Basecamp.Apis {
-
+    
+    /// <summary>
+    /// Class representing the implementation of the Basecamp 2 API.
+    /// </summary>
     public class BasecampBcxApi {
 
         /// <summary>
