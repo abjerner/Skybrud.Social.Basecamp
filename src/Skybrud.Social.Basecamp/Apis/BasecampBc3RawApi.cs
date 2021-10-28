@@ -18,9 +18,15 @@ namespace Skybrud.Social.Basecamp.Apis {
         /// </summary>
         public BasecampProjectsRawEndpoint Projects { get; }
 
+        /// <summary>
+        /// Gets a reference to the raw <strong>To-do sets</strong> endpoint.
+        /// </summary>
+        public BasecampTodoSetsRawEndpoint TodoSets { get; }
+
         internal BasecampBc3RawApi(BasecampOAuthClient client) {
             People = new BasecampPeopleRawEndpoint(client);
             Projects = new BasecampProjectsRawEndpoint(client);
+            TodoSets = new BasecampTodoSetsRawEndpoint(client);
         }
 
     }

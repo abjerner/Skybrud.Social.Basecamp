@@ -16,10 +16,16 @@ namespace Skybrud.Social.Basecamp.Apis {
         /// Gets a reference to the <strong>Projects</strong> endpoint.
         /// </summary>
         public BasecampProjectsEndpoint Projects { get; }
+
+        /// <summary>
+        /// Gets a reference to the <strong>To-do sets</strong> endpoint.
+        /// </summary>
+        public BasecampTodoSetsEndpoint TodoSets { get; }
         
         internal BasecampBc3Api(BasecampHttpService service) {
             People = new BasecampPeopleEndpoint(service);
             Projects = new BasecampProjectsEndpoint(service);
+            TodoSets = new BasecampTodoSetsEndpoint(service);
         }
 
     }
