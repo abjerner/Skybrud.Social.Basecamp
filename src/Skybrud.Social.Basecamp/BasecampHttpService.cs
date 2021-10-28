@@ -1,5 +1,6 @@
 ﻿using System;
 using Skybrud.Social.Basecamp.Apis;
+using Skybrud.Social.Basecamp.Endpoints;
 using Skybrud.Social.Basecamp.OAuth;
 
 namespace Skybrud.Social.Basecamp {
@@ -15,6 +16,11 @@ namespace Skybrud.Social.Basecamp {
         /// Gets a reference to the Basecamp OAuth client.
         /// </summary>
         public BasecampOAuthClient Client { get; }
+
+        /// <summary>
+        /// Gets a reference to the <strong>Authorization</strong> endpoint.
+        /// </summary>
+        public BasecampAuthorizationEndpoint Authorization { get; }
 
         /// <summary>
         /// Gets a reference to the <strong>Basecamp 2</strong> API implementation.
@@ -41,6 +47,7 @@ namespace Skybrud.Social.Basecamp {
         /// <param name="client">The OAuth client that this service instance should wrap.</param>
         public BasecampHttpService(BasecampOAuthClient client) {
             Client = client ?? throw new ArgumentNullException(nameof(client));
+            Authorization = new BasecampAuthorizationEndpoint(this);
             Bcx = new BasecampBcxApi(this);
             Bc3 = new BasecampBc3Api(this);
         }
