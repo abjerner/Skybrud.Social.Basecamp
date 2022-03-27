@@ -1,43 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>9.0</LangVersion>
-  </PropertyGroup>
- 
-  <PropertyGroup>
-    <Version>1.0.0-beta001</Version>
-    <Authors>Anders Bjerner</Authors>
-    <Company>Limbo</Company>
-    <Product>Skybrud.Social</Product>
-    <Copyright>Copyright © 2021</Copyright>
-    <Description>Authentication and service implementation for the Basecamp API.</Description>
-    <RepositoryUrl>https://github.com/abjerner/Skybrud.Social.Basecamp</RepositoryUrl>
-  </PropertyGroup>
-  
-  <PropertyGroup>
-    <PackageTags>Basecamp, API, Skybrud, Social, OAuth, JSON</PackageTags>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://social.skybrud.dk/basecamp/</PackageProjectUrl>
-    <PackageIcon>Limbo.png</PackageIcon>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/abjerner/Skybrud.Social.Basecamp</RepositoryUrl>
-  </PropertyGroup>
+	<PropertyGroup>
+		<LangVersion>9.0</LangVersion>
+		<TargetFramework>netstandard2.0</TargetFramework>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Skybrud.Essentials.Http" Version="1.0.14" />
-  </ItemGroup>
+	<PropertyGroup>
+		<Version>1.0.0-beta001</Version>
+		<Company>Limbo</Company>
+		<Product>Skybrud.Social</Product>
+		<Authors>Anders Bjerner</Authors>
+		<Copyright>Copyright © 2022</Copyright>
+		<Description>Authentication and service implementation for the Basecamp API.</Description>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-  </PropertyGroup>
-  
-  <ItemGroup>
-    <None Include="../build/Limbo.png" Pack="true" PackagePath="\" />
-  </ItemGroup>
+	<!-- Information for the NuGet package -->
+	<PropertyGroup>
+		<PackageId>Skybrud.Social.Basecamp</PackageId>
+		<PackageTags>Basecamp, API, Skybrud, Social, OAuth, JSON</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/abjerner/Skybrud.Social.Basecamp</PackageProjectUrl>
+		<PackageIcon>Limbo.png</PackageIcon>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/abjerner/Skybrud.Social.Basecamp</RepositoryUrl>
+	</PropertyGroup>
 
-  <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(ConfigurationName)'=='Release' AND '$(BuildTools)'=='1' AND '$(TargetFramework)'=='netstandard2.0'">
-    <Exec Command="&quot;$(ProjectDir)..\build\Skybrud.BuildTools.Tasks.exe&quot; &quot;postBuild&quot; &quot;$(ConfigurationName)&quot; &quot;$(ProjectPath)&quot; &quot;$(TargetPath)&quot;" />
-  </Target>-->
+	<!-- Include NuGet dependencies -->
+	<ItemGroup>
+		<PackageReference Include="Skybrud.Essentials.Http" Version="1.0.16" />
+	</ItemGroup>
+
+	<!-- Include package icon for NuGet -->
+	<ItemGroup>
+		<Content Include="../build/Limbo.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+	<!-- Generate XML documentation -->
+	<PropertyGroup>
+		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+	</PropertyGroup>
 
 </Project>
