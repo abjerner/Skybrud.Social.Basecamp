@@ -2,6 +2,7 @@
 using Skybrud.Social.Basecamp.Apis;
 using Skybrud.Social.Basecamp.Endpoints;
 using Skybrud.Social.Basecamp.OAuth;
+using Skybrud.Social.Basecamp.Responses.Authentication;
 
 namespace Skybrud.Social.Basecamp {
 
@@ -72,6 +73,33 @@ namespace Skybrud.Social.Basecamp {
         public static BasecampHttpService CreateFromAccessToken(string accessToken) {
             if (string.IsNullOrWhiteSpace(accessToken)) throw new ArgumentNullException(nameof(accessToken));
             return new BasecampHttpService(new BasecampOAuthClient {AccessToken = accessToken});
+        }
+
+        /// <summary>
+        /// Initializes a new service instance from the specified OAuth 2 <paramref name="refreshToken"/>.
+        /// </summary>
+        /// <param name="clientId">The client ID.</param>
+        /// <param name="clientSecret">The client Secret.</param>
+        /// <param name="refreshToken">The refresh token.</param>
+        /// <remarks>Calling this method will result in a request to the Basecamp API to exchange the refresh token for a new access token.</remarks>
+        public static BasecampHttpService CreateFromRefreshToken(string clientId, string clientSecret, string refreshToken) {
+            
+            if (string.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException(nameof(clientId));
+            if (string.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentNullException(nameof(clientSecret));
+            if (string.IsNullOrWhiteSpace(refreshToken)) throw new ArgumentNullException(nameof(refreshToken));
+
+            // Initialize a new OAuth client
+            BasecampOAuthClient client = new() {
+                ClientId = clientId,
+                ClientSecret = clientSecret
+            };
+
+            // Make the request to the Basecamp API
+            BasecampTokenResponse response = client.GetAccessTokenFromRefreshToken(refreshToken);
+
+            // Initialize a new HTTP service
+            return CreateFromAccessToken(response.Body.AccessToken);
+
         }
 
         #endregion
