@@ -13,8 +13,14 @@ namespace Skybrud.Social.Basecamp.Models.Bc3.Headers {
 
         #region Properties
 
+        /// <summary>
+        /// Gets the name associated with the rate limit - eg. <c>API</c>.
+        /// </summary>
         public string Name { get; }
 
+        /// <summary>
+        /// Gets the rate limiting period.
+        /// </summary>
         public int Period { get; }
 
         /// <summary>
