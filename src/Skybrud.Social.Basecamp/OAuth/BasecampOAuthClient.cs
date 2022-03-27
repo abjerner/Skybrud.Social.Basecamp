@@ -110,6 +110,7 @@ namespace Skybrud.Social.Basecamp.OAuth {
         /// Exchanges the specified <paramref name="authorizationCode"/> for a user access token.
         /// </summary>
         /// <param name="authorizationCode">The authorization code received from the GitHub OAuth dialog.</param>
+        /// <returns>An instance of <see cref="BasecampTokenResponse"/> representing the response from the Basecamp API.</returns>
         public BasecampTokenResponse GetAccessTokenFromAuthorizationCode(string authorizationCode) {
 
             // Some validation
@@ -130,6 +131,33 @@ namespace Skybrud.Social.Basecamp.OAuth {
             // Get the response from the server
             IHttpResponse response = HttpUtils.Requests.Post("https://launchpad.37signals.com/authorization/token", query, default(IHttpPostData));
             
+            // Return the response
+            return BasecampTokenResponse.ParseResponse(response);
+
+        }
+
+        /// <summary>
+        /// Exchanges the specified <paramref name="refreshToken"/> for a new access token.
+        /// </summary>
+        /// <param name="refreshToken">The refresh token.</param>
+        /// <returns>An instance of <see cref="BasecampTokenResponse"/> representing the response from the Basecamp API.</returns>
+        public BasecampTokenResponse GetAccessTokenFromRefreshToken(string refreshToken) {
+
+            // Some validation
+            if (string.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
+            if (string.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientId));
+            if (string.IsNullOrWhiteSpace(refreshToken)) throw new ArgumentNullException(nameof(refreshToken));
+
+            IHttpQueryString query = new HttpQueryString {
+                {"type", "refresh"},
+                {"client_id", ClientId},
+                {"client_secret", ClientSecret},
+                {"refresh_token", refreshToken }
+            };
+
+            // Get the response from the server
+            IHttpResponse response = HttpUtils.Requests.Post("https://launchpad.37signals.com/authorization/token", query, default(IHttpPostData));
+
             // Return the response
             return BasecampTokenResponse.ParseResponse(response);
 
