@@ -40,7 +40,7 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bc3 {
         /// <see>
         ///     <cref>https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-person</cref>
         /// </see>
-        public BasecampPersonResponse GetPerson(int accountId, int personId) {
+        public BasecampPersonResponse GetPerson(long accountId, int personId) {
             return new BasecampPersonResponse(Raw.GetPerson(accountId, personId));
         }
 
@@ -52,7 +52,7 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bc3 {
         /// <see>
         ///     <cref>https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-my-personal-info</cref>
         /// </see>
-        public BasecampPersonResponse GetProfile(int accountId) {
+        public BasecampPersonResponse GetProfile(long accountId) {
             return new BasecampPersonResponse(Raw.GetProfile(accountId));
         }
 
@@ -64,7 +64,7 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bc3 {
         /// <see>
         ///     <cref>https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-all-people</cref>
         /// </see>
-        public BasecampPersonListResponse GetAll(int accountId) {
+        public BasecampPersonListResponse GetAll(long accountId) {
             return new BasecampPersonListResponse(Raw.GetAll(accountId));
         }
 
@@ -77,7 +77,7 @@ namespace Skybrud.Social.Basecamp.Endpoints.Bc3 {
         /// <see>
         ///     <cref>https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-all-people</cref>
         /// </see>
-        public BasecampPersonListResponse GetAll(int accountId, int page) {
+        public BasecampPersonListResponse GetAll(long accountId, int page) {
             return new BasecampPersonListResponse(Raw.GetAll(accountId, page));
         }
 
