@@ -8,7 +8,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Version>1.0.0-beta002</Version>
+		<Version>1.0.0-beta003</Version>
 		<Company>Limbo</Company>
 		<Product>Skybrud.Social</Product>
 		<Authors>Anders Bjerner</Authors>
