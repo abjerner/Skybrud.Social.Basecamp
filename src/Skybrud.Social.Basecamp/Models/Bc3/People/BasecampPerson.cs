@@ -43,6 +43,8 @@ namespace Skybrud.Social.Basecamp.Models.Bc3.People {
         /// </summary>
         public string Bio { get; }
 
+        // TODO: Add support for the "location" property
+
         /// <summary>
         /// Gets the timestamp for when the person was created in Basecamp.
         /// </summary>

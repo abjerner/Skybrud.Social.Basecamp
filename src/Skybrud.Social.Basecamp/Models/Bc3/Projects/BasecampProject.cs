@@ -40,6 +40,8 @@ namespace Skybrud.Social.Basecamp.Models.Bc3.Projects {
         /// Gets the description of the project.
         /// </summary>
         public string Description { get; }
+
+        // TODO: Add support for the "purpose" property
         
         /// <summary>
         /// Gets whether clients has been enabled for this project.
