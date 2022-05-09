@@ -83,8 +83,8 @@ namespace Skybrud.Social.Basecamp.Models.Bc3.Projects {
         private BasecampProject(JObject json) : base(json)  {
             Id = json.GetInt64("id");
             Status = json.GetString("status");
-            CreatedAt = json.GetString("created_at", EssentialsTime.FromIso8601);
-            UpdatedAt = json.GetString("updated_at", EssentialsTime.FromIso8601);
+            CreatedAt = json.GetString("created_at", ParseEssentialsTime);
+            UpdatedAt = json.GetString("updated_at", ParseEssentialsTime);
             Name = json.GetString("name");
             Description = json.GetString("description");
             IsClientsEnabled = json.GetBoolean("clients_enabled");

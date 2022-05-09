@@ -58,8 +58,8 @@ namespace Skybrud.Social.Basecamp.Models.Bc3.Comments {
         private BasecampComment(JObject json) : base(json)  {
             Id = json.GetInt64("id");
             Title = json.GetString("title");
-            CreatedAt = json.GetString("created_at", EssentialsTime.Parse);
-            UpdatedAt = json.GetString("updated_at", EssentialsTime.Parse);
+            CreatedAt = json.GetString("created_at", ParseEssentialsTime);
+            UpdatedAt = json.GetString("updated_at", ParseEssentialsTime);
             Title = json.GetString("title");
             Url = json.GetString("url");
             AppUrl = json.GetString("app_url");

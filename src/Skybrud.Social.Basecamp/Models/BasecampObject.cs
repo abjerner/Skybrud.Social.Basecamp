@@ -1,5 +1,8 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System;
+using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json;
+using Skybrud.Essentials.Time;
+using Skybrud.Essentials.Time.Iso8601;
 
 namespace Skybrud.Social.Basecamp.Models {
 
@@ -43,6 +46,15 @@ namespace Skybrud.Social.Basecamp.Models {
             result = null;
             return false;
 
+        }
+
+        /// <summary>
+        /// Parses the specified <paramref name="value"/> into a corresponding <see cref="EssentialsTime"/>.
+        /// </summary>
+        /// <param name="value">The value to be parsed.</param>
+        /// <returns>An instance of <see cref="EssentialsTime"/> if successful; otherwise, <c>null</c>.</returns>
+        protected EssentialsTime ParseEssentialsTime(string value) {
+            return Iso8601Utils.TryParse(value, out DateTimeOffset dto) ? new EssentialsTime(dto) : null;
         }
 
         #endregion
